@@ -1,9 +1,23 @@
-<HTML>
+<HTML lang="en">
     <HEAD>
-    <script type="text/javascript" src="paper.js/dist/paper-full.js"></script>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="utf-8" http-equiv="encoding">
+    <script type="text/javascript" src="http://paperjs.org/assets/js/paper.js"></script>
     <script type="text/paperscript" canvas="myCanvas" src="bicycle-ergo.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+            <script>
+            $( function() {
+              $( "#slider-toptube" ).slider();
+              $( "#slider-seattube" ).slider();
+            } )();
+            </script> -->
     </HEAD>
     <BODY>
-        <canvas id="myCanvas" resize heigh=900px></canvas>
+        <canvas id="myCanvas" resize height=900px></canvas>
+        <div id="title-toptube">Toptube</div>
+        <div id="slider-toptube"></div>
+        <div id="title-seattube">Seat Tube</div>
+        <div id="slider-seattube"></div>
     </BODY>
 </HTML>

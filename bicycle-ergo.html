@@ -1,23 +1,27 @@
 <HTML lang="en">
-    <HEAD>
+<HEAD>
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
     <meta content="utf-8" http-equiv="encoding">
-    <script type="text/javascript" src="http://paperjs.org/assets/js/paper.js"></script>
-    <script type="text/paperscript" canvas="myCanvas" src="bicycle-ergo.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-            <script>
-            $( function() {
-              $( "#slider-toptube" ).slider();
-              $( "#slider-seattube" ).slider();
-            } )();
-            </script> -->
-    </HEAD>
-    <BODY>
-        <canvas id="myCanvas" resize height=900px></canvas>
-        <div id="title-toptube">Toptube</div>
-        <div id="slider-toptube"></div>
-        <div id="title-seattube">Seat Tube</div>
-        <div id="slider-seattube"></div>
-    </BODY>
+    <script>
+        $( function() {
+            $( "#slider-toptube" ).slider();
+            $( "#slider-seattube" ).slider();
+        } );
+    </script>
+    <script type="text/javascript" src="http://paperjs.org/assets/js/paper.js"></script>
+    <script type="text/paperscript" canvas="myCanvas" src="bicycle-ergo.js"></script>
+    
+</HEAD>
+<BODY>
+    <div id="title-toptube">Toptube</div>
+    <div id="slider-toptube"></div>
+    <div id="title-seattube">Seat Tube</div>
+    <div id="slider-seattube"></div>
+    <canvas id="myCanvas" resize></canvas>
+</BODY>
 </HTML>

@@ -1,3 +1,8 @@
+project.currentStyle = {
+    strokeColor: 'black',
+    strokeWidth: 3
+};
+
 var seattube_length = 58;
 var toptube_length = 55;
 var headtube_length = 14;
@@ -12,12 +17,6 @@ var seat_stemheight = 10;
 var seat_stemoffset = 2;
 var crank_length = 16.5;
 var wheelsize = 31;
-
-project.currentStyle = {
-    strokeColor: 'black',
-    strokeWidth: 3
-};
-
 var basex = 100;
 var basey = 100;
 
@@ -33,15 +32,17 @@ var BB = new Path.Circle({
 // Main triangle
 var seattube_end = new Point(start+[0,-seattube_length]);
 var seattube = new Path.Line(start,start + [0,-seattube_length]);
-var tt_end = new Point(seattube.lastSegment.point.x+toptube_length,seattube.lastSegment.point.y)
+var tt_end = new Point(seattube.lastSegment.point.x+toptube_length,seattube.lastSegment.point.y);
 var toptube = new Path.Line(seattube.lastSegment.point,tt_end);
 var ht_end = new Point(toptube.lastSegment.point.x,toptube.lastSegment.point.y+headtube_length-3);
 var headtube = new Path.Line(toptube.lastSegment.point,ht_end);
 var downtube = new Path.Line(start,headtube.lastSegment.point);
 
-// Seat
+// Seat Stem
 var seat = new Point(seattube_end + [0, - seat_stemheight]);
 var seat_stem = new Path.Line(seattube.lastSegment.point,seat);
+
+// Seat
 
 // Rear chainstay
 var cs_end = new Point(start.x-chainstay_hz_length,start.y-bb_drop);
@@ -59,3 +60,27 @@ var fork = new Path.Line(frontwheel.interiorPoint,ht_end);
 var handlebar_stem = new Path.Line(tt_end,tt_end - [0,handlebar_stemheight]);
 var handlebar_stemoffset = new Path.Line(handlebar_stem.lastSegment.point - [2,0] ,handlebar_stem.lastSegment.point +[handlebar_stemlength,0]);
 var handlebars = new Path.Arc(handlebar_stemoffset.lastSegment.point,handlebar_stemoffset.lastSegment.point + [5,5], handlebar_stemoffset.lastSegment.point + [-3,12]);
+
+// Pedals
+// Rider
+// Foot
+// Lower Leg
+// Upper Leg
+// Hips
+// Torso
+// Upper Arm
+// Lower Arm
+// Hands
+// Neck
+// Head
+
+function updateModel(){
+    toptube_length = $( "#slider-toptube" ).slider( "option", "value" );
+    tt_end.set(seattube.lastSegment.point.x+toptube_length,seattube.lastSegment.point.y);
+    toptube.lastSegment.remove();
+    toptube.add(tt_end);
+};
+
+$( "#slider-toptube" ).on( "slidechange", function( event, ui ) {
+    updateModel();
+} );
